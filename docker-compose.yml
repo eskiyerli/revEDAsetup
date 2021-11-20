@@ -3,10 +3,15 @@ services:
   reveda:
     image: reveda/public:latest
     environment:
-      - DISPLAY=${DISPLAY}
+    # this line should be uncommented for a linux host
+      # - DISPLAY=${DISPLAY}
+    # this line is for a windos host
+    # it can change depending on ipconfig output
+      - DISPLAY=172.22.16.1:0.0
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - /etc/machine-id:/etc/machine-id
+    # next two lines should be uncommented when running on a linux machine.
+      # - /tmp/.X11-unix:/tmp/.X11-unix
+      # - /etc/machine-id:/etc/machine-id
       - ./config/:/home/caduser/config
       - ./simulations:/home/caduser/simulations
     network_mode: host
