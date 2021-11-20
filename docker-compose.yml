@@ -2,7 +2,6 @@ version: "3"
 services:
   reveda:
     image: reveda:latest
-    build: .
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
