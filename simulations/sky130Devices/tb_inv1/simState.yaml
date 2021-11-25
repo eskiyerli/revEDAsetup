@@ -1,0 +1,101 @@
+---
+libName: sky130Devices
+cellName: tb_inv1
+viewName: schematic
+---
+simulatorName: Xyce
+simPathPrefix: /home/caduser/simulations
+simPath: /home/caduser/simulations/sky130Devices/tb_inv1
+textEditorPath: /usr/bin/featherpad
+simulatorPath: /opt/Xyce/bin/Xyce
+includeFilePath: .
+---
+- /home/caduser/sky130/sky130_fd_pr/models/sky130.lib.spice
+---
+- tt
+--- {}
+---
+iamp: 100u
+cload: 1p
+pdd: '1.2'
+---
+tran:
+  tInitStep: 1n
+  tstop: 1u
+  tstart: '0'
+  tMaxStep: ''
+  tSchedule: ''
+  uiuc: 0
+ac:
+  linlog: 2
+  fstart: 1k
+  fstop: 10000k
+  fstep: '100'
+noise:
+  outnode: ''
+  refnode: '0'
+  inputSource: ''
+  sourceResistance: ''
+  linlog: 0
+  fstart: 1k
+  fstop: 1Meg
+  fstep: '100 '
+dc:
+  sweepType: 0
+  inputSource: ''
+  linlog: 0
+  start: '0'
+  stop: '1'
+  step: '10'
+hb:
+  frequency:
+  - '1e9'
+  numfreq:
+  - '10'
+  intmodmax: '3'
+  tahb: false
+  startupperiods: '2'
+  numpts: '101'
+  voltlim: true
+  saveicdata: false
+---
+- 1
+- 1
+---
+- plot: true
+  save: true
+  output: I(VI2)
+  analysis: 0
+  noiseref: 0
+- plot: true
+  save: true
+  output: V(vaOut)
+  analysis: 0
+  noiseref: 0
+- plot: true
+  save: true
+  output: VDB(out)
+  analysis: 1
+  noiseref: 0
+--- {}
+---
+tranOptions:
+  method: 7
+  newlte: 2
+  abstol: '1e-12'
+  reltol: '1e-3'
+temperOptions:
+  temp: '25'
+  tnom: '25'
+deviceOptions:
+  gmin: '1e-12'
+  voltlim: 1
+  lambertw: 0
+parserOptions:
+  model_binning: 1
+--- {}
+--- {}
+---
+saveNodes: 2
+saveCurrents: 1
+saveExpressions: 1
